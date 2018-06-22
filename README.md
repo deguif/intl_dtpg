@@ -24,6 +24,16 @@ Long story short: currently (with standard `intl`) there is no way to format a d
 + Try it using example
   `php example.php`
 
+## Running via Docker
+
+The easiest way to run PHP with the library is via docker:
+
++ `docker build -t intl_dtpg .`
++ `docker run -it -v $(pwd):/code intl_dtpg php example.php`
+
+You can use this setup to generate an e.g. JSON file with all the formats you require
+without the need to install this library in production (which can be cumbersome).
+
 ## Examples
 
 See [example.php](example.php).
