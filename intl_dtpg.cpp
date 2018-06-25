@@ -67,7 +67,7 @@ PHP_METHOD(IntlDateTimePatternGenerator, __construct)
     dtpg = php_intl_datetimepatterngenerator_fetch_object(Z_OBJ_P(object));
 
     dtpg->status = U_ZERO_ERROR;
-    dtpg->dtpg = DateTimePatternGenerator::createInstance(Locale(ZSTR_VAL(locale)), dtpg->status);
+    dtpg->dtpg = icu::DateTimePatternGenerator::createInstance(icu::Locale(ZSTR_VAL(locale)), dtpg->status);
 }
 /* }}} */
 
@@ -87,7 +87,7 @@ PHP_METHOD(IntlDateTimePatternGenerator, findBestPattern)
     object = getThis();
     dtpg = php_intl_datetimepatterngenerator_fetch_object(Z_OBJ_P(object));
 
-    UnicodeString pattern = dtpg->dtpg->getBestPattern(UnicodeString(ZSTR_VAL(skeleton)), dtpg->status);
+    icu::UnicodeString pattern = dtpg->dtpg->getBestPattern(icu::UnicodeString(ZSTR_VAL(skeleton)), dtpg->status);
 
     std::string s;
     pattern.toUTF8String(s);

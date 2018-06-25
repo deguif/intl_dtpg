@@ -20,7 +20,7 @@ extern zend_module_entry intl_dtpg_module_entry;
 #endif
 
 typedef struct {
-    DateTimePatternGenerator *dtpg;
+    icu::DateTimePatternGenerator *dtpg;
     UErrorCode status;
     zend_object zo;
 } IntlDateTimePatternGenerator_object;
